@@ -1,0 +1,18 @@
+{
+    "payload": {
+        "segments": [
+            {
+                "text": "This is a"
+            },
+            {
+                "styles": [2, 6, 7],
+                "text": "TEST,"
+            },
+            {
+                "styles": [3, 4],
+                "text": "so be careful..."
+            }
+        ],
+        "styles": [3]
+    }
+}

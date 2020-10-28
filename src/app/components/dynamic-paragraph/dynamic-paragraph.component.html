@@ -1,0 +1,9 @@
+<div class="nssd-paragraph-container">
+  <p *ngIf="!!paragraph && !!paragraph.segments && !!paragraph.segments.length" class="{{paragraph.styles | style}}">
+    <ng-container *ngFor="let segment of paragraph.segments">
+      <span *ngIf="!!segment && !!segment.text" class="{{segment.styles | style}}">
+        {{segment.text}}
+      </span>
+    </ng-container>
+  </p>
+</div>
