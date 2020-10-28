@@ -1,18 +1,52 @@
 {
-    "payload": {
-        "segments": [
-            {
-                "text": "This is a"
-            },
-            {
-                "styles": [2, 6, 7],
-                "text": "TEST,"
-            },
-            {
-                "styles": [3, 4],
-                "text": "so be careful..."
-            }
-        ],
-        "styles": [3]
-    }
+    "payload": [
+        {
+            "segments": [
+                {
+                    "text": "This is a"
+                },
+                {
+                    "styles": [2, 6, 7],
+                    "text": "TEST,"
+                },
+                {
+                    "styles": [3, 4],
+                    "text": "so be careful..."
+                }
+            ],
+            "styles": [3]
+        },
+        {
+            "segments": [
+                {
+                    "text": "This is a the number"
+                },
+                {
+                    "styles": [4],
+                    "text": "two,"
+                },
+                {
+                    "styles": [2],
+                    "text": "so be ready!!"
+                }
+            ],
+            "styles": [6]
+        },
+        {
+            "segments": [
+                {
+                    "styles": [4],
+                    "text": "And this..."
+                },
+                {
+                    "styles": [2],
+                    "text": "this is the end."
+                },
+                {
+                    "styles": [3],
+                    "text": "So goodbye."
+                }
+            ]
+        }
+    ]
 }

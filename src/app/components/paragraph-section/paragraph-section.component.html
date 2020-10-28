@@ -1,1 +1,5 @@
-<nssd-dynamic-paragraph [paragraph]="paragraph"></nssd-dynamic-paragraph>
+<div *ngIf="((!!paragraphs) && (!!paragraphs.length))">
+  <ng-container *ngFor="let paragraph of paragraphs">
+    <nssd-dynamic-paragraph [paragraph]="paragraph"></nssd-dynamic-paragraph>
+  </ng-container>
+</div>

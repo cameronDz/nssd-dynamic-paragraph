@@ -12,7 +12,7 @@ import { ParagraphStorageDataService } from '../../services/paragraph-storage-da
 export class ParagraphSectionComponent implements OnDestroy, OnInit
 {
 
-    public paragraph: ParagraphModel = null;
+    public paragraphs: Array<ParagraphModel> = null;
     private storageSubscription: Subscription = null;
 
     constructor(private paragraphStorageDataService: ParagraphStorageDataService) {}
@@ -30,8 +30,8 @@ export class ParagraphSectionComponent implements OnDestroy, OnInit
         }
     }
 
-    private paragraphStorageCallback(self: ParagraphSectionComponent, data: ParagraphModel): void
+    private paragraphStorageCallback(self: ParagraphSectionComponent, data: Array<ParagraphModel>): void
     {
-        self.paragraph = data;
+        self.paragraphs = data;
     }
 }

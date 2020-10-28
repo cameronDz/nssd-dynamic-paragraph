@@ -37,10 +37,10 @@
   "name": "nssd-dynamic-paragraph",
   "private": true,
   "scripts": {
-    "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --watch=false --browsers ChromeHeadless",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "start": "ng serve",
+    "test": "ng test --watch=false --browsers ChromeHeadless"
   },
   "version": "0.0.1"
 }
