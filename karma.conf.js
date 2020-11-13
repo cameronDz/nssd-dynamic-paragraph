@@ -7,7 +7,9 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
+      require('karma-coverage'),
       require('karma-chrome-launcher'),
+      require('karma-spec-reporter'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -17,16 +19,24 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/nssd-dynamic-paragraph'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    coverageReporter: {
+      dir: require('path').join(__dirname, './reports/nssd-dynamic-paragraph'),
+      reporters: [
+        { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
+        { type: 'text', subdir: '.', file: 'text.txt' },
+        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' }
+      ]
+    },
+    reporters: ['progress', 'coverage', 'spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    autoWatch: false,
+    browsers: ['ChromeHeadless'],
+    singleRun: true,
+    restartOnFileChange: false
   });
 };
