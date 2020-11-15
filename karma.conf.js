@@ -3,40 +3,39 @@
 
 module.exports = function (config) {
   config.set({
+    autoWatch: false,
     basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    browsers: ['ChromeHeadless'],
+    client: {
+      clearContext: false
+    },
+    colors: true,
+    coverageIstanbulReporter: {
+      fixWebpackSourcePaths: true,
+      reports: ['text-summary']
+    },
+    coverageReporter: {
+      dir: require('path').join(__dirname, './coverage'),
+      instrumenterOptions: {
+        istanbul: { noCompact: true }
+      },
+      reporters: [
+        { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
+        { type: 'text-summary', subdir: '.', file: 'basic.txt' }
+      ]
+    },
+    frameworks: ['@angular-devkit/build-angular', 'jasmine'],
+    logLevel: config.LOG_INFO,
     plugins: [
-      require('karma-jasmine'),
-      require('karma-coverage'),
       require('karma-chrome-launcher'),
-      require('karma-spec-reporter'),
-      require('karma-jasmine-html-reporter'),
+      require('karma-coverage'),
+      require('karma-jasmine'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-    client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/nssd-dynamic-paragraph'),
-      reports: ['lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
-    },
-    coverageReporter: {
-      dir: require('path').join(__dirname, './reports/nssd-dynamic-paragraph'),
-      reporters: [
-        { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
-        { type: 'text', subdir: '.', file: 'text.txt' },
-        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' }
-      ]
-    },
-    reporters: ['progress', 'coverage', 'spec'],
     port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false,
-    browsers: ['ChromeHeadless'],
-    singleRun: true,
-    restartOnFileChange: false
+    reporters: ['coverage', 'coverage-istanbul', 'progress'],
+    restartOnFileChange: false,
+    singleRun: true
   });
 };

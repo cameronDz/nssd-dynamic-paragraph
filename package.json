@@ -28,7 +28,6 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "karma-spec-reporter": "0.0.32",
     "rxjs": "~6.6.0",
     "ts-node": "~8.3.0",
     "tslib": "^2.0.0",
